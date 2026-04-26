@@ -1,5 +1,5 @@
 # Install services and tools
-sudo apt install openssh-server git ttyd gh tmux
+sudo apt-get install openssh-server git ttyd gh tmux -y
 
 # Configure SSH to listen on port 8022 and restart the service on login
 sudo sed -i 's/^#\?Port 22/Port 8022/' /etc/ssh/sshd_config
