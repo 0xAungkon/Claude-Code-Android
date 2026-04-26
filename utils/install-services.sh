@@ -11,3 +11,6 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 
 curl -fsSL https://ollama.com/install.sh | sh
 
+git config --global init.defaultBranch main
+git config --global user.email "claude@gmail.com"
+git config --global user.name "claude"
