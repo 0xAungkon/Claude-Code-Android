@@ -30,5 +30,5 @@ while true; do
 
     $FG || break
     
-    sleep 3
+    sleep 60
 done
