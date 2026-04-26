@@ -25,6 +25,11 @@ echo "Set a password for the 'ubuntu' user:"
 read -s -p "Enter password: " PW && echo && proot-distro login ubuntu -- bash -lc "echo \"ubuntu:$PW\" | chpasswd"
 
 echo "3. Installing services and tools inside Ubuntu..."
+
+
+# Set up Ollama and other services
+proot-distro login ubuntu --user ubuntu -- bash -lc "git clone https://github.com/0xAungkon/Full-Claude-Environment-Termux.git /home/ubuntu/.oh-my-termux"
+
 proot-distro login ubuntu -- bash -lc "bash /home/ubuntu/.oh-my-termux/utils/setup-instance.sh"
 
 proot-distro login ubuntu

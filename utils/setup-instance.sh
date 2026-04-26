@@ -9,9 +9,6 @@ curl -LsSf https://astral.sh/uv/install.sh | sudo sh
 curl -fsSL https://ollama.com/install.sh | sudo sh
 curl -fsSL https://claude.ai/install.sh | bash
 
-# Set up Ollama and other services
-git clone https://github.com/0xAungkon/Full-Claude-Environment-Termux.git /home/ubuntu/.oh-my-termux
-
 # Copy service files and make them executable
 sudo cp /home/ubuntu/.oh-my-termux/services/*  /etc/init.d/ 
 sudo chmod +x /etc/init.d/*
