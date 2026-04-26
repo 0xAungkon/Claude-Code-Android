@@ -1,3 +1,4 @@
+!/bin/bash
 # Install Ubuntu
 pkg update && pkg upgrade -y
 pkg install proot-distro curl tmux -y
