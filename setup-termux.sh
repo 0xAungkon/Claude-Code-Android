@@ -28,5 +28,8 @@ read -s -p "Enter password: " PW && echo && proot-distro login ubuntu -- bash -l
 proot-distro login ubuntu -- bash -lc 'curl -LsSf https://astral.sh/uv/install.sh | sh'
 proot-distro login ubuntu -- bash -lc 'curl -fsSL https://ollama.com/install.sh | sh'
 
+proot-distro login ubuntu -- bash -lc 'git clone https://github.com/0xAungkon/Full-Claude-Environment-Termux.git ~/.oh-my-termux'
+
+proot-distro login ubuntu -- bash -lc 'cp ~/.oh-my-termux/services/*  /etc/init.d/ && chmod +x /etc/init.d/*'
 
 proot-distro login ubuntu

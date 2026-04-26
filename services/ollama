@@ -1,0 +1,5 @@
+#!/bin/bash
+pkill -f "ttyd.*8026" 2>/dev/null
+
+export OLLAMA_HOST=0.0.0.0:11434
+exec /usr/bin/ttyd -p 8026 /usr/local/bin/ollama serve

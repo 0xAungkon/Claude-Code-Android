@@ -1,0 +1,4 @@
+#!/bin/bash
+
+pkill -f "ttyd.*8024" 2>/dev/null
+/usr/bin/ttyd -p 8024 btop

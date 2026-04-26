@@ -1,0 +1,4 @@
+#!/bin/bash
+pkill -f "ttyd.*8025" 2>/dev/null
+
+/usr/bin/ttyd -p 8025 -W tmux new-session -A -s terminal -c ~/home
