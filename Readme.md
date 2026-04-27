@@ -11,3 +11,12 @@ bash <(curl -fsSL -H "Cache-Control: no-cache" -H "Pragma: no-cache" "https://ra
 
 
 proot-distro login ubuntu --user ubuntu -- bash -lc '/home/ubuntu/.oh-my-termux/utils/start-services.sh --fg'
+
+
+```
+
+git config --global init.defaultBranch main
+git config --global user.email "claude@gmail.com"
+git config --global user.name "claude"
+
+```
