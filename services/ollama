@@ -1,7 +1,10 @@
 #!/bin/bash
-pkill -f "ttyd.*8026" 2>/dev/null
-LOG_FILE="/var/log/ollama_8026.log"
 
+pkill -f "ollama.*serve" 2>/dev/null
 
-export OLLAMA_HOST=0.0.0.0:11434
-nohup /usr/bin/ttyd -p 8026 /usr/local/bin/ollama serve >> $LOG_FILE 2>&1 & disown
+LOG_FILE="/var/log/ollama_11434.log"
+mkdir -p /var/log
+
+export OLLAMA_HOST="0.0.0.0:11434"
+
+nohup /usr/local/bin/ollama serve >> "$LOG_FILE" 2>&1 & disown
