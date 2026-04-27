@@ -1,10 +1,13 @@
-# /usr/local/bin/ttyd-auth
-#!/bin/bash
+# /home/ubuntu/.oh-my-termux/utils/ttyd-auth.sh
+#!/usr/bin/env bash
 
 USER_NAME="$(id -un)"
 
-read -rsp "Password: " INPUT_PASS
-echo
+printf "Password: "
+stty -echo
+read INPUT_PASS
+stty echo
+printf "\n"
 
 if ! echo "$INPUT_PASS" | su -c "exit" "$USER_NAME" >/dev/null 2>&1; then
     echo "Authentication failed"
