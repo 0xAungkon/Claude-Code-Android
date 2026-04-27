@@ -31,8 +31,7 @@ while true; do
     #     /home/ubuntu/.oh-my-termux/services/ttyd restart
     #     echo "ttyd restarted"
     # fi
-    ttyd
-    htop
+    
 
     $FG || break
     

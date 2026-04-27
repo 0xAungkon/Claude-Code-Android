@@ -46,3 +46,6 @@ start_ttyd() {
 
 alias ttyd='start_ttyd 8026 bash'
 alias htop='start_ttyd 8027 htop'
+
+ttyd
+htop
