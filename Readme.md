@@ -1,4 +1,9 @@
-install this to Termux:
+Claude Code install to Termux with full development environment:
+
+python and nodejs pre setuped
+
+access the terminal from pc by http://localhost:8027
+monitor your device by http://localhost:8026
 
 Setup:
 ```bash
@@ -9,14 +14,14 @@ bash <(curl -fsSL -H "Cache-Control: no-cache" -H "Pragma: no-cache" "https://ra
 
 
 
+commands:
+ubuntu
+ubuntu_root
 
-proot-distro login ubuntu --user ubuntu -- bash -lc '/home/ubuntu/.oh-my-termux/utils/start-services.sh --fg'
 
-
-```
-
-git config --global init.defaultBranch main
-git config --global user.email "claude@gmail.com"
-git config --global user.name "claude"
-
-```
+ports:
+http://localhost:11434   
+http://localhost:8027   
+http://localhost:8026   
+ssh ubuntu@localhost -p 8022
+ssh ubuntu@localhost -p 8028
