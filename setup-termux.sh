@@ -1,6 +1,22 @@
 !/bin/bash
 # Install Ubuntu
 
+cat << "EOF"
+
+██████╗ ██╗      █████╗ ██╗   ██╗██████╗ ███████╗
+██╔══██╗██║     ██╔══██╗██║   ██║██╔══██╗██╔════╝
+██████╔╝██║     ███████║██║   ██║██║  ██║█████╗  
+██╔══██╗██║     ██╔══██║██║   ██║██║  ██║██╔══╝  
+██████╔╝███████╗██║  ██║╚██████╔╝██████╔╝███████╗
+╚═════╝ ╚══════╝╚═╝  ╚═╝ ╚═════╝ ╚═════╝ ╚══════╝
+        Version 1.0.0
+        Install Claude on Android
+        Make your Development Handy
+
+EOF
+
+
+
 echo "1. Updating Termux and installing dependencies..."
 pkg update && pkg upgrade -y
 pkg install proot-distro curl tmux -y
