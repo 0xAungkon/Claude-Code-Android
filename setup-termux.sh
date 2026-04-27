@@ -17,7 +17,7 @@ EOF
 echo "0. Setup Termux"
 echo "Set Termux password:"
 passwd
-
+touch ~/.hushlogin
 
 echo "1. Updating Termux and installing dependencies..."
 command -v proot-distro >/dev/null 2>&1 || { 
@@ -83,6 +83,7 @@ tmux has-session -t service-runner 2>/dev/null || tmux new-session -d -s service
 EOF
 
 
-if ! grep -qF 'alias u=' ~/.bashrc; then
-    echo 'alias u="proot-distro login ubuntu --user ubuntu -- bash -lc '"'"'tmux -S /tmp/tmux-main new-session -As terminal -c /home/ubuntu/home'"'"'"' >> ~/.bashrc
+if ! grep -qF 'bash proot-distro login ubuntu --user ubuntu -- bash' ~/.bashrc; then
+    echo 'bash proot-distro login ubuntu --user ubuntu -- bash' >> ~/.bashrc
 fi
+
