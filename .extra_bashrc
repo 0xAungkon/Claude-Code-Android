@@ -1,3 +1,5 @@
+export HOME=/home/ubuntu
+
 bash /home/ubuntu/.oh-my-termux/utils/system-info.sh
 
 # Ollama + Claude-compatible environment
@@ -13,5 +15,3 @@ git config --global user.email "claude@gmail.com"
 git config --global user.name "claude"
 
 alias claude="tmux claude"
-
-
