@@ -1,5 +1,70 @@
-#!/bin/bash
+#! /bin/sh
 
-pkill -f "ttyd.*8025" 2>/dev/null
+### BEGIN INIT INFO
+# Provides:          ttyd-tmux-terminal
+# Required-Start:    $network $remote_fs
+# Required-Stop:     $network $remote_fs
+# Default-Start:     2 3 4 5
+# Default-Stop:
+# Short-Description: ttyd tmux terminal session
+### END INIT INFO
 
-nohup /usr/bin/ttyd -p 8025 -W tmux new-session -A -s terminal -c ~/home & disown
+set -e
+
+PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+
+NAME="ttyd-tmux-terminal"
+DAEMON="/usr/bin/ttyd"
+PORT="8025"
+SESSION="terminal"
+WORKDIR="/home/ubuntu/home"
+PIDFILE="/run/ttyd_tmux_terminal.pid"
+LOGFILE="/var/log/ttyd_tmux_terminal.log"
+
+. /lib/lsb/init-functions
+
+start() {
+    log_daemon_msg "Starting ttyd tmux" "$NAME"
+
+    start-stop-daemon --start --background --make-pidfile \
+        --pidfile "$PIDFILE" \
+        --exec /bin/sh -- -c "
+        $DAEMON -p $PORT -W tmux new-session -A -s $SESSION -c $WORKDIR >> $LOGFILE 2>&1
+        "
+
+    log_end_msg $?
+}
+
+stop() {
+    log_daemon_msg "Stopping ttyd tmux" "$NAME"
+
+    start-stop-daemon --stop --quiet --pidfile "$PIDFILE" --retry 30 || true
+    rm -f "$PIDFILE"
+
+    log_end_msg $?
+}
+
+restart() {
+    stop
+    start
+}
+
+status() {
+    if [ -f "$PIDFILE" ] && kill -0 "$(cat $PIDFILE)" 2>/dev/null; then
+        echo "ttyd tmux is running on port $PORT"
+        exit 0
+    else
+        echo "ttyd tmux is not running"
+        exit 1
+    fi
+}
+
+case "$1" in
+    start) start ;;
+    stop) stop ;;
+    restart) restart ;;
+    status) status ;;
+    *) echo "Usage: $0 {start|stop|restart|status}" ; exit 1 ;;
+esac
+
+exit 0
