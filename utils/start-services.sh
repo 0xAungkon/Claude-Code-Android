@@ -11,11 +11,11 @@ while true; do
         sudo service ssh restart
     fi
 
-    if service btop status >/dev/null 2>&1; then
-        echo "Btop already running"
+    if service htop status >/dev/null 2>&1; then
+        echo "Htop already running"
     else
-        echo "Btop not running, restarting..."
-        sudo service btop restart
+        echo "Htop not running, restarting..."
+        sudo service htop restart
     fi
 
     if service ollama status >/dev/null 2>&1; then

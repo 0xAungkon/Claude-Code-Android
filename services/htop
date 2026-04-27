@@ -4,4 +4,4 @@ LOG_FILE="/var/log/ttyd_8024.log"
 
 pkill -f "ttyd.*8024" 2>/dev/null
 
-nohup /usr/bin/ttyd -p 8024 btop >> $LOG_FILE 2>&1 & disown
+nohup /usr/bin/ttyd -p 8024 htop >> $LOG_FILE 2>&1 & disown
