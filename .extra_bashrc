@@ -1,4 +1,4 @@
-bash /home/ubuntu/.oh-my-termux/utils/sysinfo.sh
+bash /home/ubuntu/.oh-my-termux/utils/system-info.sh
 
 # Ollama + Claude-compatible environment
 export ANTHROPIC_AUTH_TOKEN=ollama
