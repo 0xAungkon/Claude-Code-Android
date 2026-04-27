@@ -14,4 +14,3 @@ git config --global user.name "claude"
 
 export PATH="$HOME/.local/bin:$PATH"
 
-alias claude='tmux new-session -A -s claude-shell "claude"'
