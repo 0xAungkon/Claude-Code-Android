@@ -12,6 +12,8 @@ cat << "EOF"
     Install Claude on Android
     Make your Development Handy
     Developed by 0xAungkon
+
+    
 EOF
 
 
