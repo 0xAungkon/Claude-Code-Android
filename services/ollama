@@ -1,10 +1,5 @@
 #!/bin/bash
 
-pkill -f "ollama.*serve" 2>/dev/null
+tmux kill-session -t ollama 2>/dev/null
 
-LOG_FILE="/var/log/ollama_11434.log"
-mkdir -p /var/log
-
-export OLLAMA_HOST="0.0.0.0:11434"
-
-nohup /usr/local/bin/ollama serve >> "$LOG_FILE" 2>&1 & disown
+tmux new-session -d -s ollama "OLLAMA_HOST=0.0.0.0:11434 ollama serve;"

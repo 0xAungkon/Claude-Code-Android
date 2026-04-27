@@ -1,0 +1,57 @@
+[2026/04/27 06:13:24:9613] N: ttyd 1.7.7 (libwebsockets 4.3.5-unknown)
+[2026/04/27 06:13:24:9639] N: tty configuration:
+[2026/04/27 06:13:24:9640] N:   start command: tmux attach-session -t ollama
+[2026/04/27 06:13:24:9640] N:   close signal: SIGHUP (1)
+[2026/04/27 06:13:24:9640] N:   terminal type: xterm-256color
+[2026/04/27 06:13:24:9640] N: The --writable option is not set, will start in readonly mode
+[2026/04/27 06:13:24:9719] N:    /usr/lib/aarch64-linux-gnu/libwebsockets-evlib_uv.so
+[2026/04/27 06:13:24:9723] N: lws_create_context: LWS: 4.3.5-unknown, NET CLI SRV H1 H2 WS ConMon IPV6-off
+[2026/04/27 06:13:24:9738] N: elops_init_pt_uv:  Using foreign event loop...
+[2026/04/27 06:13:24:9739] N: __lws_lc_tag:  ++ [wsi|0|pipe] (1)
+[2026/04/27 06:13:24:9760] N: __lws_lc_tag:  ++ [vh|0|netlink] (1)
+[2026/04/27 06:13:24:9767] W: rops_pt_init_destroy_netlink: netlink bind failed
+[2026/04/27 06:13:24:9768] N: __lws_lc_untag:  -- [vh|0|netlink] (0) 780μs
+[2026/04/27 06:13:24:9773] N: __lws_lc_tag:  ++ [vh|1|default||8025] (1)
+[2026/04/27 06:13:24:9796] N: [vh|1|default||8025]: lws_socket_bind: source ads 0.0.0.0
+[2026/04/27 06:13:24:9806] N: __lws_lc_tag:  ++ [wsi|1|listen|default||8025] (2)
+[2026/04/27 06:13:24:9808] N:  Listening on port: 8025
+[2026/04/27 06:14:02:4888] N: received signal: SIGTERM (15), exiting...
+[2026/04/27 06:14:02:4890] N: send ^C to force exit.
+[2026/04/27 06:14:02:7327] N: ttyd 1.7.7 (libwebsockets 4.3.5-unknown)
+[2026/04/27 06:14:02:7338] N: tty configuration:
+[2026/04/27 06:14:02:7339] N:   start command: tmux attach-session -t ollama
+[2026/04/27 06:14:02:7339] N:   close signal: SIGHUP (1)
+[2026/04/27 06:14:02:7339] N:   terminal type: xterm-256color
+[2026/04/27 06:14:02:7339] N: The --writable option is not set, will start in readonly mode
+[2026/04/27 06:14:02:7390] N:    /usr/lib/aarch64-linux-gnu/libwebsockets-evlib_uv.so
+[2026/04/27 06:14:02:7391] N: lws_create_context: LWS: 4.3.5-unknown, NET CLI SRV H1 H2 WS ConMon IPV6-off
+[2026/04/27 06:14:02:7404] N: elops_init_pt_uv:  Using foreign event loop...
+[2026/04/27 06:14:02:7405] N: __lws_lc_tag:  ++ [wsi|0|pipe] (1)
+[2026/04/27 06:14:02:7417] N: __lws_lc_tag:  ++ [vh|0|netlink] (1)
+[2026/04/27 06:14:02:7419] W: rops_pt_init_destroy_netlink: netlink bind failed
+[2026/04/27 06:14:02:7419] N: __lws_lc_untag:  -- [vh|0|netlink] (0) 216μs
+[2026/04/27 06:14:02:7421] N: __lws_lc_tag:  ++ [vh|1|default||8025] (1)
+[2026/04/27 06:14:02:7432] N: [vh|1|default||8025]: lws_socket_bind: source ads 0.0.0.0
+[2026/04/27 06:14:02:7436] N: __lws_lc_tag:  ++ [wsi|1|listen|default||8025] (2)
+[2026/04/27 06:14:02:7436] N:  Listening on port: 8025
+[2026/04/27 06:14:28:0517] N: received signal: SIGTERM (15), exiting...
+[2026/04/27 06:14:28:0518] N: send ^C to force exit.
+[2026/04/27 06:15:09:4331] N: ttyd 1.7.7 (libwebsockets 4.3.5-unknown)
+[2026/04/27 06:15:09:4351] N: tty configuration:
+[2026/04/27 06:15:09:4351] N:   start command: tmux attach-session -t ollama
+[2026/04/27 06:15:09:4352] N:   close signal: SIGHUP (1)
+[2026/04/27 06:15:09:4352] N:   terminal type: xterm-256color
+[2026/04/27 06:15:09:4352] N: The --writable option is not set, will start in readonly mode
+[2026/04/27 06:15:09:4430] N:    /usr/lib/aarch64-linux-gnu/libwebsockets-evlib_uv.so
+[2026/04/27 06:15:09:4431] N: lws_create_context: LWS: 4.3.5-unknown, NET CLI SRV H1 H2 WS ConMon IPV6-off
+[2026/04/27 06:15:09:4442] N: elops_init_pt_uv:  Using foreign event loop...
+[2026/04/27 06:15:09:4444] N: __lws_lc_tag:  ++ [wsi|0|pipe] (1)
+[2026/04/27 06:15:09:4460] N: __lws_lc_tag:  ++ [vh|0|netlink] (1)
+[2026/04/27 06:15:09:4463] W: rops_pt_init_destroy_netlink: netlink bind failed
+[2026/04/27 06:15:09:4463] N: __lws_lc_untag:  -- [vh|0|netlink] (0) 366μs
+[2026/04/27 06:15:09:4466] N: __lws_lc_tag:  ++ [vh|1|default||8026] (1)
+[2026/04/27 06:15:09:4479] N: [vh|1|default||8026]: lws_socket_bind: source ads 0.0.0.0
+[2026/04/27 06:15:09:4482] N: __lws_lc_tag:  ++ [wsi|1|listen|default||8026] (2)
+[2026/04/27 06:15:09:4482] N:  Listening on port: 8026
+[2026/04/27 06:15:15:6959] N: received signal: SIGTERM (15), exiting...
+[2026/04/27 06:15:15:6960] N: send ^C to force exit.

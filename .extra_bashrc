@@ -1,4 +1,24 @@
-bash /home/ubuntu/.oh-my-termux/utils/system-info.sh
+
+export HOME=/home/ubuntu
+export USER=ubuntu
+export LOGNAME=ubuntu
+
+export SHELL=/bin/bash
+export TERM=xterm-256color
+
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
+export XDG_CONFIG_HOME=$HOME/.config
+export XDG_CACHE_HOME=$HOME/.cache
+export XDG_DATA_HOME=$HOME/.local/share
+
+export PWD="$HOME"
+export OLDPWD="$HOME"
+export OLLAMA_HOST="0.0.0.0:11434"
+
+umask 022
+
 
 # Ollama + Claude-compatible environment
 export ANTHROPIC_AUTH_TOKEN=ollama
@@ -8,9 +28,6 @@ export ANTHROPIC_DEFAULT_SONNET_MODEL=kimi-k2.6:cloud
 export ANTHROPIC_DEFAULT_HAIKU_MODEL=minimax-m2.7:cloud
 export ANTHROPIC_DEFAULT_OPUS_MODEL=kimi-k2.5:cloud
 
-git config --global init.defaultBranch main
-git config --global user.email "claude@gmail.com"
-git config --global user.name "claude"
-
 export PATH="$HOME/.local/bin:$PATH"
 
+bash /home/ubuntu/.oh-my-termux/utils/system-info.sh
