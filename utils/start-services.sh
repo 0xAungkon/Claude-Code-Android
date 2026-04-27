@@ -15,20 +15,20 @@ while true; do
         echo "Htop already running"
     else
         echo "Htop not running, restarting..."
-        sudo service htop restart
+        /home/ubuntu/.oh-my-termux/services/htop restart
     fi
 
     if service ollama status >/dev/null 2>&1; then
         echo "Ollama already running"
     else
-        sudo service ollama restart
+        /home/ubuntu/.oh-my-termux/services/ollama restart
         echo "Ollama restarted"
     fi
 
     if service ttyd status >/dev/null 2>&1; then
         echo "ttyd already running"
     else
-        sudo service ttyd restart
+        /home/ubuntu/.oh-my-termux/services/ttyd restart
         echo "ttyd restarted"
     fi
 

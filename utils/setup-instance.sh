@@ -11,9 +11,6 @@ command -v ollama >/dev/null 2>&1 || curl -fsSL https://ollama.com/install.sh | 
 
 command -v claude >/dev/null 2>&1 || curl -fsSL https://claude.ai/install.sh | sh
 
-# Copy service files and make them executable
-sudo cp -f /home/ubuntu/.oh-my-termux/services/* /etc/init.d/
-sudo chmod +x /etc/init.d/*
 
 # Enable services to start on boot
 if ! grep -qxF "source ~/.oh-my-termux/.extra_bashrc" ~/.bashrc; then

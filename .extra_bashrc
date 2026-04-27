@@ -31,3 +31,5 @@ export ANTHROPIC_DEFAULT_OPUS_MODEL=kimi-k2.5:cloud
 export PATH="$HOME/.local/bin:$PATH"
 
 bash /home/ubuntu/.oh-my-termux/utils/system-info.sh
+
+alias tss='bash /home/ubuntu/.oh-my-termux/utils/start-services.sh'
