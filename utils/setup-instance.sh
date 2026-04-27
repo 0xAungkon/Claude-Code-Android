@@ -5,11 +5,11 @@ sudo apt-get install openssh-server git ttyd gh tmux curl wget zstd -y
 sudo sed -i 's/^#\?Port 22/Port 8022/' /etc/ssh/sshd_config
 
 # Install Ollama and UV
-command -v uv >/dev/null 2>&1 || curl -LsSf https://astral.sh/uv/install.sh | sudo sh
+command -v uv >/dev/null 2>&1 || curl -LsSf https://astral.sh/uv/install.sh | sh
 
 command -v ollama >/dev/null 2>&1 || curl -fsSL https://ollama.com/install.sh | sudo sh
 
-command -v claude >/dev/null 2>&1 || curl -fsSL https://claude.ai/install.sh | bash
+command -v claude >/dev/null 2>&1 || curl -fsSL https://claude.ai/install.sh | sh
 
 # Copy service files and make them executable
 sudo cp -f /home/ubuntu/.oh-my-termux/services/* /etc/init.d/
