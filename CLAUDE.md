@@ -17,9 +17,10 @@ This repository sets up a full Claude development environment on Android via Ter
 - It also reconfigures the guest SSH daemon to port `8028` and appends a `source ~/.oh-my-termux/.extra_bashrc` line to `~/.bashrc`.
 
 **Environment & Services**
-- `.extra_bashrc` is sourced by the guest `~/.bashrc`. It exports Ollama-as-Claude-API variables (`ANTHROPIC_BASE_URL`, `ANTHROPIC_DEFAULT_*_MODEL`, etc.), XDG dirs, and defines helper functions/aliases.
-- `utils/start-services.sh` is the service supervisor. It polls every 60 seconds (or once if not `--fg`) and ensures SSH and Ollama are running, then starts `ttyd` and `htop` via the aliases defined in `.extra_bashrc`.
+- `.extra_bashrc` is sourced by the guest `~/.bashrc`. It exports Ollama-as-Claude-API variables (`ANTHROPIC_BASE_URL`, `ANTHROPIC_DEFAULT_*_MODEL`, etc.), XDG dirs, and defines helper functions/aliases. The `start_ttyd` function passes `-W utils/ttyd-auth.sh` to ttyd for password authentication. The file ends with `ttyd` and `htop` commands that auto-start the web terminal and monitor on each shell login.
+- `utils/start-services.sh` is the service supervisor. It polls every 60 seconds (or once if not `--fg`) and ensures SSH and Ollama are running. It no longer manages `ttyd` or `htop`; those are auto-started by `.extra_bashrc` instead.
 - `services/ollama` is an LSB-style init.d script used by the supervisor to start/stop/restart the Ollama daemon.
+- `utils/ttyd-auth.sh` is a password credential checker invoked by ttyd (`-W`). It prompts for the user's password and verifies it via `su` before executing the requested command.
 - `utils/system-info.sh` prints a welcome banner on login showing system load, storage, memory, swap, and active service endpoints.
 
 **Port Map**
@@ -35,9 +36,10 @@ This repository sets up a full Claude development environment on Android via Ter
 |------|---------|
 | `setup-termux.sh` | One-time setup script run from Termux. Clones/pulls this repo and delegates to `utils/setup-instance.sh` inside Ubuntu. |
 | `utils/setup-instance.sh` | Guest bootstrap: apt installs, uv/ollama/claude installers, SSH port tweak, wires `.extra_bashrc`. |
-| `.extra_bashrc` | Guest environment: Ollama/Claude API vars, `start_ttyd` function, and aliases (`ttyd`, `htop`, `tss`). |
-| `utils/start-services.sh` | Supervisor loop. Invoked by Termux tmux session `service-runner`. Restarts SSH and Ollama if down; starts ttyd/htop. |
+| `.extra_bashrc` | Guest environment: Ollama/Claude API vars, `start_ttyd` function (with `-W ttyd-auth.sh`), aliases (`ttyd`, `htop`, `tss`), and auto-starts ttyd/htop on login. |
+| `utils/start-services.sh` | Supervisor loop. Invoked by Termux tmux session `service-runner`. Restarts SSH and Ollama if down. |
 | `services/ollama` | Init.d script for Ollama; used by the supervisor. Supports `start`, `stop`, `restart`, `status`. |
+| `utils/ttyd-auth.sh` | ttyd credential checker (`-W`). Prompts for password and verifies via `su`. |
 | `utils/system-info.sh` | Welcome banner printed on guest login. |
 
 ## Common Commands

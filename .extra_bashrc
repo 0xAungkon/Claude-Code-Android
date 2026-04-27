@@ -41,7 +41,7 @@ start_ttyd() {
     pgrep -f "ttyd -p $port" >/dev/null || \
         nohup ttyd -p "$port" -W /home/ubuntu/.oh-my-termux/utils/ttyd-auth.sh $cmd &>/dev/null &
 
-    printf "Started ttyd on port %s with command: %s\n" "$port" "$cmd"
+    printf "Started ttyd on port localhost:%s with command: %s\n" "$port" "$cmd"
 }
 
 alias ttyd='start_ttyd 8026 bash'
@@ -49,3 +49,4 @@ alias htop='start_ttyd 8027 htop'
 
 ttyd
 htop
+
