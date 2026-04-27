@@ -8,12 +8,12 @@ cat << "EOF"
     | |___| | (_| | |_| | (_| |  __/  | || | | \__ \ || (_| | | |  __/ |   
      \____|_|\__,_|\__,_|\__,_|\___| |___|_| |_|___/\__\__,_|_|_|\___|_|   
                                                                             
-    Version 1.0.3
+    Version 1.0.4
     Install Claude on Android
     Make your Development Handy
     Developed by 0xAungkon
 
-    
+
 EOF
 
 
@@ -65,4 +65,4 @@ fi
 
 proot-distro login ubuntu --user ubuntu -- bash -lc "bash /home/ubuntu/.oh-my-termux/utils/setup-instance.sh"
 
-proot-distro login ubuntu
+proot-distro login ubuntu --user ubuntu 

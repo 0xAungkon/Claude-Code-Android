@@ -15,6 +15,7 @@ command -v claude >/dev/null 2>&1 || curl -fsSL https://claude.ai/install.sh | b
 sudo cp /home/ubuntu/.oh-my-termux/services/*  /etc/init.d/ 
 sudo chmod +x /etc/init.d/*
 
+# Enable services to start on boot
 if ! grep -qxF "source ~/.oh-my-termux/.extra_bashrc" ~/.bashrc; then
     echo 'source ~/.oh-my-termux/.extra_bashrc' >> ~/.bashrc
 fi

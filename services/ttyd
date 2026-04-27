@@ -1,4 +1,5 @@
 #!/bin/bash
 pkill -f "ttyd.*8025" 2>/dev/null
+LOG_FILE="/var/log/ttyd_8025.log"
 
-/usr/bin/ttyd -p 8025 -W tmux new-session -A -s terminal -c ~/home
+nohup /usr/bin/ttyd -p 8025 -W tmux new-session -A -s terminal -c ~/home >> $LOG_FILE 2>&1 & disown
