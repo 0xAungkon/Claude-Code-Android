@@ -12,18 +12,25 @@ cat << "EOF"
     Install Claude on Android
     Make your Development Handy
     Developed by 0xAungkon
-
-
 EOF
 
+echo "0. Setup Termux"
+echo "Set Termux password:"
+passwd
 
 
 echo "1. Updating Termux and installing dependencies..."
 command -v proot-distro >/dev/null 2>&1 || { 
     echo "1. Updating Termux and installing dependencies..."
     pkg update && pkg upgrade -y
-    pkg install proot-distro curl tmux -y
+    pkg install proot-distro curl tmux openssh -y
 }
+
+if ! grep -qxF 'sshd' ~/.bashrc; then
+    echo 'sshd' >> ~/.bashrc
+fi
+
+sshd
 
 proot-distro list | grep -q "^ubuntu" || proot-distro install ubuntu
 
@@ -32,8 +39,8 @@ if ! grep -qxF 'alias ubuntu_root="proot-distro login ubuntu"' ~/.bashrc; then
     echo 'alias ubuntu_root="proot-distro login ubuntu"' >> ~/.bashrc
 fi
 
-if ! grep -qxF 'alias ubuntu="proot-distro login ubuntu -- bash -lc \"su - ubuntu -\""' ~/.bashrc; then
-    echo 'alias ubuntu="proot-distro login ubuntu -- bash -lc \"su - ubuntu -\""' >> ~/.bashrc
+if ! grep -qxF 'alias ubuntu="proot-distro login ubuntu --user ubuntu"' ~/.bashrc; then
+    echo 'alias ubuntu="proot-distro login ubuntu --user ubuntu"' >> ~/.bashrc
 fi
 
 echo "2. Setting up Ubuntu instance..."
@@ -66,3 +73,16 @@ fi
 proot-distro login ubuntu --user ubuntu -- bash -lc "bash /home/ubuntu/.oh-my-termux/utils/setup-instance.sh"
 
 proot-distro login ubuntu --user ubuntu 
+
+if ! grep -qxF 'alias u_service' ~/.bashrc; then
+    echo 'alias u_service="proot-distro login ubuntu --user ubuntu -- bash -lc '"'"'/home/ubuntu/.oh-my-termux/utils/start-services.sh --fg'"'"'"' >> ~/.bashrc
+fi
+
+grep -qF 'service-runner' ~/.bashrc || cat >> ~/.bashrc << 'EOF'
+tmux has-session -t service-runner 2>/dev/null || tmux new-session -d -s service-runner 'proot-distro login ubuntu --user ubuntu -- bash -lc "bash /home/ubuntu/.oh-my-termux/utils/start-services.sh --fg"; tmux kill-session -t service-runner'
+EOF
+
+
+if ! grep -qF 'alias u=' ~/.bashrc; then
+    echo 'alias u="proot-distro login ubuntu --user ubuntu -- bash -lc '"'"'tmux -S /tmp/tmux-main new-session -As terminal -c /home/ubuntu/home'"'"'"' >> ~/.bashrc
+fi

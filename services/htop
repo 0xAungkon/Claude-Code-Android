@@ -15,7 +15,7 @@ PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 
 NAME="ttyd-htop"
 DAEMON="/usr/bin/ttyd"
-PORT="8024"
+PORT="8027"
 PIDFILE="/run/ttyd_htop.pid"
 LOGFILE="/var/log/ttyd_htop.log"
 

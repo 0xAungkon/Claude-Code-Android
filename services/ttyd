@@ -13,9 +13,10 @@ PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 
 NAME="ttyd-tmux-terminal"
 DAEMON="/usr/bin/ttyd"
-PORT="8025"
+PORT="8026"
 SESSION="terminal"
 WORKDIR="/home/ubuntu/home"
+TMUX_SOCKET="/tmp/tmux-main"
 PIDFILE="/run/ttyd_tmux_terminal.pid"
 LOGFILE="/var/log/ttyd_tmux_terminal.log"
 USER="ubuntu"
@@ -35,8 +36,9 @@ start() {
     fi
 
     sudo su -s /bin/bash "$USER" -c "
-        tmux new-session -d -s '$SESSION' -c '$WORKDIR' 2>/dev/null || true
-        nohup $DAEMON -p $PORT -W tmux attach-session -t '$SESSION' >> '$LOGFILE' 2>&1 &
+        tmux -S '$TMUX_SOCKET' new-session -d -s '$SESSION' -c '$WORKDIR' 2>/dev/null || true
+        chmod 777 '$TMUX_SOCKET'
+        nohup $DAEMON -p $PORT -W tmux -S '$TMUX_SOCKET' attach-session -t '$SESSION' >> '$LOGFILE' 2>&1 &
         echo \$! > '$PIDFILE'
     "
 
@@ -57,7 +59,7 @@ stop() {
         rm -f "$PIDFILE"
     fi
 
-    sudo su -s /bin/bash "$USER" -c "tmux kill-session -t '$SESSION' 2>/dev/null || true"
+    sudo su -s /bin/bash "$USER" -c "tmux -S '$TMUX_SOCKET' kill-session -t '$SESSION' 2>/dev/null || true"
 
     log_end_msg 0
 }

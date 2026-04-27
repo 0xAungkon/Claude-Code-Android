@@ -45,6 +45,6 @@ echo "  Memory:       $MEM_USED / $MEM_TOTAL ($MEM_PCT)     Swap:         $SWAP_
 
 echo ""
 echo "Services:"
-echo "Ollama: http://localhost:11434           |   Log: http://localhost:8026"
-echo "System Monitor: http://localhost:8024    |   Terminal: http://localhost:8025"
-echo "SSH: ssh ubuntu@localhost:22"
+echo "Ollama: http://localhost:11434           |   Host SSH: ssh u0_a324@localhost -p 8022"
+echo "System Monitor: http://localhost:8027    |   Terminal: http://localhost:8026"
+echo "SSH: ssh ubuntu@localhost -p 8028"
