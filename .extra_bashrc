@@ -39,7 +39,7 @@ start_ttyd() {
     local cmd="$2"
 
     pgrep -f "ttyd -p $port" >/dev/null || \
-        nohup ttyd -p "$port" -W /usr/local/bin/ttyd-auth $cmd &>/dev/null &
+        nohup ttyd -p "$port" -W /home/ubuntu/.oh-my-termux/utils/ttyd-auth.sh $cmd &>/dev/null &
 
     printf "Started ttyd on port %s with command: %s\n" "$port" "$cmd"
 }
