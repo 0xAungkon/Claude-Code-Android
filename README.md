@@ -1,5 +1,6 @@
-# Full Claude Environment on Termux
+# Claude Code Android
 
+### Full Claude Development Environment on Termux
 A complete Claude development environment running on Android via Termux and proot-distro Ubuntu. This project provides a fully automated setup for running Ollama, Claude CLI, web terminal access, and SSH — all from your Android device.
 
 > **Tested on:** Termux `v0.119.0-beta` (version code `1022`)
