@@ -34,11 +34,13 @@ bash /home/ubuntu/.oh-my-termux/utils/system-info.sh
 
 alias tss='bash /home/ubuntu/.oh-my-termux/utils/start-services.sh'
 
-
 start_ttyd() {
     local port=$1
-    local cmd=$2
-    pgrep -f "ttyd -p $port" > /dev/null || nohup ttyd -p $port -W $cmd &> /dev/null &
+    local cmd="$2"
+
+    pgrep -f "ttyd -p $port" >/dev/null || \
+        nohup ttyd -p "$port" -W /usr/local/bin/ttyd-auth $cmd &>/dev/null &
+
     printf "Started ttyd on port %s with command: %s\n" "$port" "$cmd"
 }
 
