@@ -8,7 +8,7 @@ cat << "EOF"
     | |___| | (_| | |_| | (_| |  __/  | || | | \__ \ || (_| | | |  __/ |   
      \____|_|\__,_|\__,_|\__,_|\___| |___|_| |_|___/\__\__,_|_|_|\___|_|   
                                                                             
-    Version 1.0.7
+    Version 1.0.8
     Install Claude on Android
     Make your Development Handy
     Developed by 0xAungkon
